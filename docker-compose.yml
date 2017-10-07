@@ -1,0 +1,8 @@
+
+version: '3'
+
+services:
+  default:
+    image: jeshan/swagger-codegen-cli
+    command: java -jar /swagger-codegen-cli.jar generate -l ${SWAGGER_LANG} -i ${SPEC_RELATIVE_PATH} -o ./swagger-${SWAGGER_LANG}-client
+    volumes: ['${SRC_PATH}:/local']

@@ -4,6 +4,21 @@
 The official image doesn't allow calling easily in a CI environment like Gitlab CI. This image is to allow that.
 
 # Examples
+## Docker Compose
+Run:
+
+`docker-compose up`
+
+This will look for a file called swagger.yaml in the current directory, compile a java client and output it into a directory called swagger-java-client. But chances are you want to customise this. Use the following options:
+
+- SRC_PATH=/path/to/your/project
+- SPEC_RELATIVE_PATH=$RELATIVE_TO_SRC_PATH/swagger.yaml
+- SWAGGER_LANG=java
+
+Either modify them in .env or run them as follows:
+
+`SRC_PATH=/path/to/your/project SPEC_RELATIVE_PATH=$RELATIVE_TO_SRC_PATH/swagger.yaml SWAGGER_LANG=java docker-compose up`
+
 ## Gitlab CI
 ```yaml
 swagger:
